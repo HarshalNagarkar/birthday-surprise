@@ -1,0 +1,174 @@
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE STYLES
+   ══════════════════════════════════════════════════════════════ */
+
+/* ─── Mobile (Up to 767px) ─── */
+@media (max-width: 767px) {
+  .traits-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .trait-card.is-featured {
+    grid-row: auto;
+    padding: 2rem;
+  }
+
+  .gallery-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .gallery-item.is-hero {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .gallery-item:not(.is-hero) .gallery-img-wrap {
+    aspect-ratio: 4/3;
+  }
+
+  .video-container {
+    padding: 0;
+  }
+
+  .letter-paper {
+    padding: 2.25rem 1.75rem;
+    transform: none !important;
+  }
+
+  .letter-fold {
+    width: 40px;
+    height: 40px;
+  }
+
+  .secret-content {
+    padding: 0;
+  }
+
+  .lightbox-content {
+    max-width: 96vw;
+  }
+
+  .lightbox-img {
+    max-width: 92vw;
+    max-height: 65vh;
+  }
+
+  .lightbox-nav-btn {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* ─── Tablet (768px - 1023px) ─── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .traits-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .trait-card.is-featured {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .gallery-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .gallery-item.is-hero {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .gallery-item.is-hero .gallery-img-wrap {
+    aspect-ratio: 16/9;
+  }
+}
+
+/* ─── Desktop (1024px+) ─── */
+@media (min-width: 1024px) {
+  .traits-grid {
+    grid-template-columns: 1.25fr 1fr;
+    gap: 2rem;
+  }
+
+  .gallery-layout {
+    grid-template-columns: 1.2fr 0.9fr 0.9fr;
+    gap: 2rem;
+  }
+
+  .video-container {
+    max-width: 1000px;
+  }
+
+  .letter-paper {
+    padding: 4.5rem;
+  }
+}
+
+/* ─── Very Large Displays (1440px+) ─── */
+@media (min-width: 1440px) {
+  .section {
+    max-width: 1320px;
+  }
+
+  .gallery-layout {
+    gap: 2.5rem;
+  }
+
+  .traits-grid {
+    gap: 2.5rem;
+  }
+}
+
+/* ─── Small phones (max 375px) ─── */
+@media (max-width: 375px) {
+  .opening-greeting {
+    font-size: 2.2rem;
+  }
+
+  .opening-enter {
+    width: 96px;
+    height: 96px;
+  }
+
+  .trait-card {
+    padding: 1.5rem;
+  }
+
+  .finale-birthday {
+    font-size: clamp(1.4rem, 6.2vw, 2.2rem);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   REDUCED MOTION
+   ═══════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.15s !important;
+  }
+
+  .opening-orb,
+  .opening-orb-ring,
+  .opening-orb-ring-2,
+  .finale-bg,
+  .bg-ambient-layer::before,
+  .bg-ambient-layer::after {
+    animation: none !important;
+  }
+
+  .cursor-dot,
+  .cursor-ring {
+    transition-duration: 0.01ms !important;
+  }
+
+  .finale-birthday {
+    filter: none !important;
+  }
+}

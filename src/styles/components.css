@@ -1,0 +1,187 @@
+/* ══════════════════════════════════════════════════════════════
+   COMPONENT STYLES — Reusable across sections
+   ══════════════════════════════════════════════════════════════ */
+
+/* ─── Glass Surface ─── */
+.glass-surface {
+  background: var(--bg-glass-heavy);
+  backdrop-filter: blur(28px) saturate(1.25);
+  -webkit-backdrop-filter: blur(28px) saturate(1.25);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow:
+    0 20px 50px rgba(62, 24, 40, 0.05),
+    0 4px 12px rgba(62, 24, 40, 0.02),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-radius: 24px;
+}
+
+/* ─── Touch Ripple ─── */
+.touch-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(199, 90, 124, 0.2), transparent 70%);
+  transform: scale(0);
+  animation: touchRippleAnim 0.6s var(--ease-out) forwards;
+  pointer-events: none;
+  z-index: 100;
+}
+
+@keyframes touchRippleAnim {
+  0%   { transform: scale(0); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+/* ─── Lightbox Modal ─── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-lightbox);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26, 13, 20, 0.88);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s var(--ease-out);
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.lightbox.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 92vw;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lightbox-img-wrap {
+  position: relative;
+  display: inline-block;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+}
+
+.lightbox-img {
+  max-width: 85vw;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 16px;
+  transform: scale(0.92);
+  transition: transform 0.5s var(--ease-out);
+  display: block;
+}
+
+.lightbox.is-open .lightbox-img {
+  transform: scale(1);
+}
+
+.lightbox-caption-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  padding: 0.5rem 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.lightbox-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.lightbox-date {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rose-300);
+}
+
+.lightbox-counter {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.lightbox-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s var(--ease-out);
+  cursor: none;
+}
+
+@media (pointer: coarse) {
+  .lightbox-nav-btn { cursor: pointer; }
+}
+
+.lightbox-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev { left: clamp(1rem, 3vw, 2.5rem); }
+.lightbox-next { right: clamp(1rem, 3vw, 2.5rem); }
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.3s var(--ease-out);
+  cursor: none;
+}
+
+@media (pointer: coarse) {
+  .lightbox-close { cursor: pointer; }
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  transform: scale(1.1);
+}
+
+/* ─── Section divider ─── */
+.section-divider {
+  width: 100px;
+  height: 1px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, rgba(199, 90, 124, 0.25), transparent);
+}

@@ -1,0 +1,230 @@
+/* ══════════════════════════════════════════════════════════════
+   GLOBAL STYLES — Tokens, Reset, Base
+   ══════════════════════════════════════════════════════════════ */
+
+/* ─── Design Tokens ─── */
+:root {
+  /* Backgrounds */
+  --bg-primary:     #faf6f2;
+  --bg-warm:        #f6efe8;
+  --bg-blush:       #fcf2ef;
+  --bg-card:        rgba(255, 255, 255, 0.65);
+  --bg-glass:       rgba(255, 255, 255, 0.45);
+  --bg-glass-heavy: rgba(255, 255, 255, 0.78);
+  --bg-dusk:        #180f15;
+
+  /* Accent Colors */
+  --rose-50:        #fff1f3;
+  --rose-100:       #ffe4e8;
+  --rose-200:       #fecdd6;
+  --rose-300:       #fda4b8;
+  --rose-400:       #e87895;
+  --rose-500:       #c75a7c;
+  --rose-600:       #a34063;
+  --rose-700:       #7d2f4b;
+  --rose-800:       #541e32;
+  --blush:          #f7c8d3;
+  --lavender-100:   #f4eff8;
+  --lavender-200:   #e7dbf2;
+  --lavender-300:   #d6b7e6;
+  --peach:          #fbe0d0;
+  --gold:           #d9a770;
+  --champagne:      #faebd7;
+
+  /* Text Colors */
+  --text-primary:   #3e1828;
+  --text-body:      #52293b;
+  --text-secondary: rgba(62, 24, 40, 0.62);
+  --text-muted:     rgba(62, 24, 40, 0.38);
+  --text-light:     #fdf7f4;
+
+  /* Fonts */
+  --font-display:   'Cormorant Garamond', 'Georgia', serif;
+  --font-body:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-script:    'Dancing Script', cursive;
+
+  /* Spacing */
+  --section-pad-y:  clamp(4.5rem, 12vh, 9.5rem);
+  --section-pad-x:  clamp(1.25rem, 6vw, 5rem);
+  --max-width-site: 1280px;
+
+  /* Shadow Depths */
+  --shadow-sm:      0 4px 16px rgba(62, 24, 40, 0.03);
+  --shadow-md:      0 12px 32px rgba(62, 24, 40, 0.05), 0 2px 6px rgba(62, 24, 40, 0.02);
+  --shadow-lg:      0 24px 60px rgba(62, 24, 40, 0.08), 0 6px 18px rgba(199, 90, 124, 0.04);
+  --shadow-xl:      0 36px 90px rgba(62, 24, 40, 0.11), 0 10px 30px rgba(199, 90, 124, 0.06);
+  --shadow-ambient: 0 0 80px rgba(253, 164, 184, 0.18);
+
+  /* Transitions */
+  --ease-smooth:    cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out:       cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-expo:  cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-in-out:    cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* Z-indices */
+  --z-cursor:       9999;
+  --z-lightbox:     9000;
+  --z-music:        8000;
+  --z-content:      10;
+  --z-bg:           1;
+}
+
+/* ─── Reset ─── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background: var(--bg-primary);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-body);
+  line-height: 1.75;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: none;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Show default cursor on touch devices */
+@media (pointer: coarse) {
+  body { cursor: auto; }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: none;
+  border: none;
+  background: none;
+  font-family: inherit;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (pointer: coarse) {
+  button { cursor: pointer; }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ─── Selection Color ─── */
+::selection {
+  background: var(--rose-200);
+  color: var(--rose-800);
+}
+
+/* ─── Ambient Multi-Layer Depth Blobs ─── */
+.bg-ambient-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-ambient-layer::before,
+.bg-ambient-layer::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Top-right warm rose aura */
+.bg-ambient-layer::before {
+  width: 55vw;
+  height: 55vw;
+  max-width: 700px;
+  max-height: 700px;
+  background: radial-gradient(circle, rgba(253, 164, 184, 0.28) 0%, rgba(254, 205, 214, 0.12) 50%, transparent 70%);
+  top: -15%;
+  right: -10%;
+  animation: blobDrift1 28s ease-in-out infinite alternate;
+}
+
+/* Bottom-left soft lavender aura */
+.bg-ambient-layer::after {
+  width: 50vw;
+  height: 50vw;
+  max-width: 650px;
+  max-height: 650px;
+  background: radial-gradient(circle, rgba(214, 183, 230, 0.25) 0%, rgba(231, 219, 242, 0.1) 50%, transparent 70%);
+  bottom: -10%;
+  left: -8%;
+  animation: blobDrift2 34s ease-in-out infinite alternate;
+}
+
+@keyframes blobDrift1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-40px, 50px) scale(1.12); }
+  100% { transform: translate(30px, -30px) scale(0.94); }
+}
+
+@keyframes blobDrift2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(50px, -40px) scale(1.08); }
+  100% { transform: translate(-30px, 30px) scale(1.15); }
+}
+
+/* ─── Global Typography Utilities ─── */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+/* ─── Screen-reader only ─── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ─── Global Keyframes ─── */
+@keyframes heartPulse {
+  0%, 100% { transform: scale(1); }
+  15%      { transform: scale(1.22); }
+  30%      { transform: scale(1); }
+  45%      { transform: scale(1.15); }
+  60%      { transform: scale(1); }
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50%      { opacity: 0.75; transform: scale(1.06); }
+}
