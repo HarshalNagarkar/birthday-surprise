@@ -14,7 +14,7 @@ export const content = {
   // ─── OPENING SCREEN ───
   hero: {
     greeting: 'Hey, Birthday Girl',
-    subtitle: 'I made a little something for you.',
+    subtitle: 'I have made something for you hope you like it.',
     enterText: 'ENTER',
     hint: 'Move your cursor & touch to explore',
   },
@@ -25,35 +25,30 @@ export const content = {
     {
       id: 'smile',
       featured: true,
-      tag: '01 / The Core',
       title: 'That genuine smile.',
       description: 'The one that shows up completely unscripted and instantly makes everything in the room feel lighter, warmer, and infinitely better.',
     },
     {
       id: 'energy',
       featured: false,
-      tag: '02 / Vibe',
       title: 'Your chaotic energy.',
       description: 'You turn the most ordinary Tuesday into something worth laughing about for weeks.',
     },
     {
       id: 'presence',
       featured: false,
-      tag: '03 / Magic',
       title: 'Making everyday fun.',
       description: 'Grocery runs, stuck in traffic, doing absolutely nothing — it\'s never dull when you\'re around.',
     },
     {
       id: 'heart',
       featured: false,
-      tag: '04 / Soul',
       title: 'How you care so quietly.',
       description: 'You never make a performance out of your kindness, but everyone around you feels it deeply.',
     },
     {
       id: 'laugh',
       featured: false,
-      tag: '05 / Melody',
       title: 'Your infectious laugh.',
       description: 'Genuinely one of the single best sounds in the universe. That is not even an exaggeration.',
     },
@@ -66,8 +61,6 @@ export const content = {
       id: 'main',
       src: 'assets/images/photo-main.jpg',
       alt: 'Favorite Portrait',
-      title: 'Pure Radiance',
-      date: 'Favorite Memory',
       role: 'hero',
       span: 'tall',
     },
@@ -75,8 +68,6 @@ export const content = {
       id: 'float-1',
       src: 'assets/images/photo-float-1.jpg',
       alt: 'Candid Moment',
-      title: 'Unscripted Joy',
-      date: 'Golden Hour',
       role: 'accent',
       span: 'standard',
     },
@@ -84,8 +75,6 @@ export const content = {
       id: 'float-2',
       src: 'assets/images/photo-float-2.jpg',
       alt: 'Adventures Together',
-      title: 'Little Escapes',
-      date: 'Summer Nights',
       role: 'accent',
       span: 'standard',
     },
@@ -93,8 +82,6 @@ export const content = {
       id: 'memory-1',
       src: 'assets/images/memory-1.jpg',
       alt: 'The Day It All Started',
-      title: 'Where It Began',
-      date: 'Aug 2024',
       role: 'satellite',
       span: 'wide',
     },
@@ -102,25 +89,15 @@ export const content = {
       id: 'memory-2',
       src: 'assets/images/memory-2.jpg',
       alt: 'Unplanned Roadtrip',
-      title: 'Wanderlust Moments',
-      date: 'Dec 2024',
       role: 'satellite',
       span: 'standard',
-    },
-    {
-      id: 'memory-3',
-      src: 'assets/images/memory-3.jpg',
-      alt: 'Special Milestone',
-      title: 'Quiet Milestones',
-      date: 'A Special Day',
-      role: 'satellite',
-      span: 'standard',
-    },
+    }
+
   ],
 
   // ─── VIDEO SECTION ───
   video: {
-    title: 'A Little Film For You',
+    title: 'A Small Edit For You',
     subtitle: 'Some moments deserve to be replayed in full motion.',
     src: 'assets/videos/birthday-video.mp4',
     poster: 'assets/images/hero.jpg',
@@ -153,7 +130,6 @@ export const content = {
   // ─── FINAL REVEAL ───
   finale: {
     line1: 'You made it this far.',
-    line2: 'So here is the one thing I truly wanted you to know.',
     birthdayText: 'HAPPY BIRTHDAY',
     closingLine: 'May today be as wonderfully radiant as you are.',
     replayText: 'Experience Again',
