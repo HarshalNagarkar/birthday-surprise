@@ -59,7 +59,7 @@ export const content = {
   photos: [
     {
       id: 'main',
-      src: 'assets/images/photo-main.jpg',
+      src: 'assets/images/photo-main.png',
       alt: 'Favorite Portrait',
       role: 'hero',
       span: 'tall',
@@ -73,7 +73,7 @@ export const content = {
     },
     {
       id: 'float-2',
-      src: 'assets/images/photo-float-2.jpg',
+      src: 'assets/images/photo-float-2.png',
       alt: 'Adventures Together',
       role: 'accent',
       span: 'standard',
